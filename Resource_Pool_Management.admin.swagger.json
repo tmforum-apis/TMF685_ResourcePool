@@ -1,0 +1,1766 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "title": "Resource Pool Management", 
+        "description": "This is Swagger UI environment generated for the TMF Resource Pool Management specification", 
+        "version": "1.0"
+    }, 
+    "host": "serverRoot", 
+    "basePath": "/tmf-api/resourcePoolManagement/v1/", 
+    "schemes": [
+        "https"
+    ], 
+    "consumes": [
+        "application/json"
+    ], 
+    "produces": [
+        "application/json"
+    ], 
+    "paths": {
+        "/reservation": {
+            "get": {
+                "operationId": "listReservation", 
+                "summary": "List or find 'Reservation' objects", 
+                "tags": [
+                    "reservation"
+                ], 
+                "parameters": [
+                    {
+                        "type": "string", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "fields", 
+                        "description": "Comma separated properties to display in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "@type", 
+                        "description": "For filtering on the base of '@type' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "relatedParty", 
+                        "description": "For filtering on the base of 'relatedParty' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "reservationState", 
+                        "description": "For filtering on the base of 'reservationState' field (equality)"
+                    }, 
+                    {
+                        "format": "date-time", 
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "valid_for", 
+                        "description": "For filtering on the base of 'valid_for' field (equality)"
+                    }, 
+                    {
+                        "name": "valid_for.gt", 
+                        "description": "For filtering on the base of 'valid_for' field (great than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "valid_for.lt", 
+                        "description": "For filtering on the base of 'valid_for' field (less than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "integer", 
+                        "name": "reservationItem.quantity", 
+                        "description": "For filtering on the base of 'quantity' field (equality)"
+                    }, 
+                    {
+                        "name": "reservationItem.quantity.gt", 
+                        "description": "For filtering on the base of 'quantity' field (great than)", 
+                        "type": "integer", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "reservationItem.quantity.lt", 
+                        "description": "For filtering on the base of 'quantity' field (less than)", 
+                        "type": "integer", 
+                        "in": "query"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "reservationItem.subReservationState", 
+                        "description": "For filtering on the base of 'subReservationState' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "channelRef.name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "requestedPeriod.daysOfWeek", 
+                        "description": "For filtering on the base of 'daysOfWeek' field (equality)"
+                    }, 
+                    {
+                        "format": "date-time", 
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "requestedPeriod.fromToDateTime", 
+                        "description": "For filtering on the base of 'fromToDateTime' field (equality)"
+                    }, 
+                    {
+                        "name": "requestedPeriod.fromToDateTime.gt", 
+                        "description": "For filtering on the base of 'fromToDateTime' field (great than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "name": "requestedPeriod.fromToDateTime.lt", 
+                        "description": "For filtering on the base of 'fromToDateTime' field (less than)", 
+                        "type": "string", 
+                        "format": "date-time", 
+                        "in": "query"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "requestedPeriod.rangeInterval", 
+                        "description": "For filtering on the base of 'rangeInterval' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "requestedPeriod.validFor", 
+                        "description": "For filtering on the base of 'validFor' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "relatedParty.name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "relatedParty.role", 
+                        "description": "For filtering on the base of 'role' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "productOfferingRef.name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Reservation"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "post": {
+                "operationId": "createReservation", 
+                "summary": "Creates a 'Reservation'", 
+                "tags": [
+                    "reservation"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Reservation_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "reservation", 
+                        "description": "The Reservation to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/Reservation"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/reservation/{id}": {
+            "get": {
+                "operationId": "retrieveReservation", 
+                "summary": "Retrieves a 'Reservation' by Id", 
+                "tags": [
+                    "reservation"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Reservation"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Reservation"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "patch": {
+                "operationId": "patchReservation", 
+                "summary": "Updates partially a 'Reservation' by Id", 
+                "tags": [
+                    "reservation"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Reservation"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Reservation_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "reservation", 
+                        "description": "The Reservation to be updated"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/Reservation"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/resourcePool": {
+            "post": {
+                "operationId": "createResourcePool", 
+                "summary": "Creates a 'ResourcePool'", 
+                "tags": [
+                    "resourcePool"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/ResourcePool_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "resourcePool", 
+                        "description": "The Resource Pool to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/ResourcePool"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/resourcePool/{id}": {
+            "patch": {
+                "operationId": "patchResourcePool", 
+                "summary": "Updates partially a 'ResourcePool' by Id", 
+                "tags": [
+                    "resourcePool"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Resource Pool"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/ResourcePool_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "resourcePool", 
+                        "description": "The Resource Pool to be updated"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/ResourcePool"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "delete": {
+                "operationId": "deleteResourcePool", 
+                "summary": "Deletes a 'ResourcePool' by Id", 
+                "tags": [
+                    "resourcePool"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Resource Pool"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/availabilityCheck": {
+            "post": {
+                "operationId": "createAvailabilityCheck", 
+                "summary": "Creates a 'AvailabilityCheck'", 
+                "tags": [
+                    "availabilityCheck"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/AvailabilityCheck_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "availabilityCheck", 
+                        "description": "The Availability Check to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/AvailabilityCheck"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/availabilityCheck/{id}": {}, 
+        "/push": {
+            "post": {
+                "operationId": "createPush", 
+                "summary": "Creates a 'Push'", 
+                "tags": [
+                    "push"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Push_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "push", 
+                        "description": "The Push to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/Push"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/push/{id}": {}, 
+        "/extract": {
+            "post": {
+                "operationId": "createExtract", 
+                "summary": "Creates a 'Extract'", 
+                "tags": [
+                    "extract"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Extract_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "extract", 
+                        "description": "The Extract to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/Extract"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/extract/{id}": {}, 
+        "/hub": {
+            "post": {
+                "operationId": "registerListener", 
+                "summary": "Register a listener", 
+                "description": "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "data", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscriptionInput"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "description": "Data containing the callback endpoint to deliver the information"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Subscribed", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub/{id}": {
+            "delete": {
+                "operationId": "unregisterListener", 
+                "summary": "Unregister a listener", 
+                "description": "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "id", 
+                        "type": "string", 
+                        "required": true, 
+                        "in": "path", 
+                        "description": "The id of the registered listener"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "405": {
+                        "description": "Method not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "ResourcePool": {
+            "type": "object", 
+            "description": "manages resource capacity with the resource state", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the Resource Pool."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the Resource Pool."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the Resource Pool."
+                }, 
+                "relatedParty": {
+                    "type": "string", 
+                    "description": "A related party defines party or party role linked to a specific entity, who uses the resource of Resource Pool."
+                }, 
+                "resourceCollection": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceCollectionRef"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "ResourcePool_Create": {
+            "type": "object", 
+            "description": "manages resource capacity with the resource state\nSkipped properties: id,href", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the Resource Pool."
+                }, 
+                "relatedParty": {
+                    "type": "string", 
+                    "description": "A related party defines party or party role linked to a specific entity, who uses the resource of Resource Pool."
+                }, 
+                "resourceCollection": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceCollectionRef"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "ResourcePool_Update": {
+            "type": "object", 
+            "description": "manages resource capacity with the resource state\nSkipped properties: id,href", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the Resource Pool."
+                }, 
+                "relatedParty": {
+                    "type": "string", 
+                    "description": "A related party defines party or party role linked to a specific entity, who uses the resource of Resource Pool."
+                }, 
+                "resourceCollection": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceCollectionRef"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Reservation": {
+            "type": "object", 
+            "description": "reservation api resource", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the reservation."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the reservation."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the Reservation."
+                }, 
+                "relatedParty": {
+                    "$ref": "#/definitions/RelatedPartyRef"
+                }, 
+                "reservationState": {
+                    "type": "string", 
+                    "description": "A string. The life cycle state of the reservation."
+                }, 
+                "valid_for": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The period of time for which the reservation is applicable."
+                }, 
+                "reservationItem": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ReservationItem"
+                    }
+                }, 
+                "channelRef": {
+                    "$ref": "#/definitions/ChannelRef"
+                }, 
+                "requestedPeriod": {
+                    "$ref": "#/definitions/RequestedPeriod"
+                }, 
+                "productOfferingRef": {
+                    "$ref": "#/definitions/ProductOfferingRef"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Reservation_Create": {
+            "type": "object", 
+            "description": "reservation api resource\nSkipped properties: id,href", 
+            "required": [
+                "relatedParty"
+            ], 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the reservation."
+                }, 
+                "relatedParty": {
+                    "$ref": "#/definitions/RelatedPartyRef"
+                }, 
+                "reservationState": {
+                    "type": "string", 
+                    "description": "A string. The life cycle state of the reservation."
+                }, 
+                "valid_for": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The period of time for which the reservation is applicable."
+                }, 
+                "reservationItem": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ReservationItem"
+                    }
+                }, 
+                "channelRef": {
+                    "$ref": "#/definitions/ChannelRef"
+                }, 
+                "requestedPeriod": {
+                    "$ref": "#/definitions/RequestedPeriod"
+                }, 
+                "productOfferingRef": {
+                    "$ref": "#/definitions/ProductOfferingRef"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Reservation_Update": {
+            "type": "object", 
+            "description": "reservation api resource\nSkipped properties: id,href", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "A string. free-text description of the reservation."
+                }, 
+                "relatedParty": {
+                    "$ref": "#/definitions/RelatedPartyRef"
+                }, 
+                "reservationState": {
+                    "type": "string", 
+                    "description": "A string. The life cycle state of the reservation."
+                }, 
+                "valid_for": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The period of time for which the reservation is applicable."
+                }, 
+                "reservationItem": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ReservationItem"
+                    }
+                }, 
+                "channelRef": {
+                    "$ref": "#/definitions/ChannelRef"
+                }, 
+                "requestedPeriod": {
+                    "$ref": "#/definitions/RequestedPeriod"
+                }, 
+                "productOfferingRef": {
+                    "$ref": "#/definitions/ProductOfferingRef"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "AvailabilityCheck": {
+            "type": "object", 
+            "description": "the availabilityCheck task resource for resource pool management", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the availabilityCheck task for resource pool Management"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the availabilityCheck task for resource pool Management"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "AvailabilityCheck_Create": {
+            "type": "object", 
+            "description": "the availabilityCheck task resource for resource pool management\nSkipped properties: id,href", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Push": {
+            "type": "object", 
+            "description": "the push task resource for resource pool management", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the push task for resource pool Management"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the push task resource"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Push_Create": {
+            "type": "object", 
+            "description": "the push task resource for resource pool management\nSkipped properties: id,href", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Extract": {
+            "type": "object", 
+            "description": "the extract task resource for resource pool management", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the availableCheck task for resource pool Management"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the extract task for resource pool Management"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "Extract_Create": {
+            "type": "object", 
+            "description": "the extract task resource for resource pool management\nSkipped properties: id,href", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "ResourceCollectionRef": {
+            "type": "object", 
+            "description": "an aggregate entity consisting of ResourceElement", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the Resource collection."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Represents a user-friendly identifier of an object."
+                }, 
+                "objectId": {
+                    "type": "string", 
+                    "description": "A list of consisted Resources."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "ReservationItem": {
+            "type": "object", 
+            "description": "An identified part of the reservation. A reservation is decomposed into one or more reservation items.", 
+            "properties": {
+                "quantity": {
+                    "type": "integer", 
+                    "description": "Represents the number of reservationItems that make up the reservation."
+                }, 
+                "subReservationState": {
+                    "type": "string", 
+                    "description": "A string. The life cycle state of the each reservation item."
+                }, 
+                "resourceCapacity": {
+                    "$ref": "#/definitions/ResourceCapacityDemand"
+                }, 
+                "appliedCapacityAmount": {
+                    "$ref": "#/definitions/AppliedCapacityAmount"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "ChannelRef": {
+            "type": "object", 
+            "description": "Channel reference. The channel defines the channel for selling product offerings.", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the channel"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the channel"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the channel"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "RequestedPeriod": {
+            "type": "object", 
+            "description": "The period of time for which user requested to use the resources.\nThe user can request on the start date without the end date.", 
+            "properties": {
+                "daysOfWeek": {
+                    "type": "string", 
+                    "description": "A day or days representing when the schedule is applicable. For example 2, 3 represent Monday and Tuesday."
+                }, 
+                "fromToDateTime": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The period of time for which the schedule is applicable. \nInstance values are mutually exclusive with daysOfWeek values."
+                }, 
+                "rangeInterval": {
+                    "type": "string", 
+                    "description": "An indicator that specifies the inclusion or exclusion of the from and to DateTime attributes. \nPossible values are \"open\", \"closed\", \"closedBottom\" and \"closedTop\"."
+                }, 
+                "validFor": {
+                    "type": "string", 
+                    "description": "The period of time during which the schedule is considered of interest to the business."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "RelatedPartyRef": {
+            "type": "object", 
+            "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Reference of the related party, could be a party reference or a party role reference."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Unique identifier of a related party."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "A string. Name of the related party."
+                }, 
+                "role": {
+                    "type": "string", 
+                    "description": "A string. Role of the related party."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "ProductOfferingRef": {
+            "type": "object", 
+            "description": "ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the product offering"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the product offering"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the product offering"
+                }, 
+                "bundledProductOffering": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/BundledProductOfferingRef"
+                    }
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "ResourceCapacityDemand": {
+            "type": "object", 
+            "description": "the amount of capacity that is planned to be consumed or has been consumed.", 
+            "properties": {
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Indicates the (class) type of reservation."
+                }, 
+                "capacityDemandAmount": {
+                    "type": "string", 
+                    "description": "A value and units that define the CapacityDemand, such as 10000 ea, 10B Mb. \nInstance values are mutually exclusive with From and To capacityDemandAmounts and range interval."
+                }, 
+                "resourcePool": {
+                    "$ref": "#/definitions/ResourcePool"
+                }, 
+                "applicableTimePeriod": {
+                    "$ref": "#/definitions/ApplicableTimePeriod"
+                }, 
+                "place": {
+                    "$ref": "#/definitions/PlaceRef"
+                }
+            }
+        }, 
+        "AppliedCapacityAmount": {
+            "type": "object", 
+            "description": "The amount of CapcityDemand applied to a CapacityAmount.", 
+            "properties": {
+                "appliedDemandAmount": {
+                    "type": "string", 
+                    "description": "An amount of demand applied to a CapacityAmount. Note that this is a composite attribute defined by CapacityAmount."
+                }, 
+                "resourceCapacityDemand": {
+                    "$ref": "#/definitions/ResourceCapacityDemand"
+                }, 
+                "resource": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceRef"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "ApplicableTimePeriod": {
+            "type": "object", 
+            "description": "The period of time for which Capacity or CapacityDemand applies.", 
+            "properties": {
+                "dayOfWeek": {
+                    "type": "string", 
+                    "description": "A day or days representing when the schedule is applicable. For example 2, 3 represent Monday and Tuesday."
+                }, 
+                "fromToDateTime": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The period of time for which the schedule is applicable. \nInstance values are mutually exclusive with daysOfWeek values."
+                }, 
+                "rangeInterval": {
+                    "type": "string", 
+                    "description": "An indicator that specifies the inclusion or exclusion of the from and to DateTime attributes. \nPossible values are \"open\", \"closed\", \"closedBottom\" and \"closedTop\"."
+                }, 
+                "validFor": {
+                    "type": "string", 
+                    "description": "The period of time during which the schedule is considered of interest to the business."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "PlaceRef": {
+            "type": "object", 
+            "description": "Used to define a place useful for the resource\nUsed to indicate reserved resources", 
+            "properties": {
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the Place."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the Place"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "A string. Name of the Place."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "ResourceRef": {
+            "type": "object", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the resource"
+                }, 
+                "href": {
+                    "type": "string"
+                }, 
+                "id": {
+                    "type": "string"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the Resource"
+                }, 
+                "state": {
+                    "type": "string", 
+                    "description": "lifecycle of the resource"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "description": "Type of the resource"
+                }, 
+                "place": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/PlaceRef"
+                    }
+                }, 
+                "characteristic": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceCharacteristic"
+                    }
+                }, 
+                "resourceRelationship": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceRelationship"
+                    }
+                }, 
+                "relatedParty": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedPartyRef"
+                    }
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "EventSubscription": {
+            "required": [
+                "id", 
+                "callback"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Id of the listener"
+                }, 
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "EventSubscriptionInput": {
+            "required": [
+                "callback"
+            ], 
+            "properties": {
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "Error": {
+            "required": [
+                "code", 
+                "reason"
+            ], 
+            "properties": {
+                "code": {
+                    "type": "integer", 
+                    "description": "Application related code."
+                }, 
+                "reason": {
+                    "type": "integer", 
+                    "description": "Text that explains the reason for error."
+                }, 
+                "message": {
+                    "type": "string", 
+                    "description": "(optional) Text that provide more details and corrective actions related to the error."
+                }, 
+                "status": {
+                    "type": "integer", 
+                    "description": "(optional) http error code extension like 400-2"
+                }, 
+                "referenceError": {
+                    "type": "string", 
+                    "description": "(optional) A URL to online documentation that provides more information about the error."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "(optional) The class type of a REST resource."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "(optional) A link to the schema describing a REST resource."
+                }
+            }
+        }
+    }
+}

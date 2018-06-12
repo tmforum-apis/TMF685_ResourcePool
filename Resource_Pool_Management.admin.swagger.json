@@ -45,132 +45,6 @@
                         "in": "query", 
                         "name": "limit", 
                         "description": "Requested number of resources to be provided in response"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "@type", 
-                        "description": "For filtering on the base of '@type' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "relatedParty", 
-                        "description": "For filtering on the base of 'relatedParty' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "reservationState", 
-                        "description": "For filtering on the base of 'reservationState' field (equality)"
-                    }, 
-                    {
-                        "format": "date-time", 
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "valid_for", 
-                        "description": "For filtering on the base of 'valid_for' field (equality)"
-                    }, 
-                    {
-                        "name": "valid_for.gt", 
-                        "description": "For filtering on the base of 'valid_for' field (great than)", 
-                        "type": "string", 
-                        "format": "date-time", 
-                        "in": "query"
-                    }, 
-                    {
-                        "name": "valid_for.lt", 
-                        "description": "For filtering on the base of 'valid_for' field (less than)", 
-                        "type": "string", 
-                        "format": "date-time", 
-                        "in": "query"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "integer", 
-                        "name": "reservationItem.quantity", 
-                        "description": "For filtering on the base of 'quantity' field (equality)"
-                    }, 
-                    {
-                        "name": "reservationItem.quantity.gt", 
-                        "description": "For filtering on the base of 'quantity' field (great than)", 
-                        "type": "integer", 
-                        "in": "query"
-                    }, 
-                    {
-                        "name": "reservationItem.quantity.lt", 
-                        "description": "For filtering on the base of 'quantity' field (less than)", 
-                        "type": "integer", 
-                        "in": "query"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "reservationItem.subReservationState", 
-                        "description": "For filtering on the base of 'subReservationState' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "channelRef.name", 
-                        "description": "For filtering on the base of 'name' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "requestedPeriod.daysOfWeek", 
-                        "description": "For filtering on the base of 'daysOfWeek' field (equality)"
-                    }, 
-                    {
-                        "format": "date-time", 
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "requestedPeriod.fromToDateTime", 
-                        "description": "For filtering on the base of 'fromToDateTime' field (equality)"
-                    }, 
-                    {
-                        "name": "requestedPeriod.fromToDateTime.gt", 
-                        "description": "For filtering on the base of 'fromToDateTime' field (great than)", 
-                        "type": "string", 
-                        "format": "date-time", 
-                        "in": "query"
-                    }, 
-                    {
-                        "name": "requestedPeriod.fromToDateTime.lt", 
-                        "description": "For filtering on the base of 'fromToDateTime' field (less than)", 
-                        "type": "string", 
-                        "format": "date-time", 
-                        "in": "query"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "requestedPeriod.rangeInterval", 
-                        "description": "For filtering on the base of 'rangeInterval' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "requestedPeriod.validFor", 
-                        "description": "For filtering on the base of 'validFor' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "relatedParty.name", 
-                        "description": "For filtering on the base of 'name' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "relatedParty.role", 
-                        "description": "For filtering on the base of 'role' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "productOfferingRef.name", 
-                        "description": "For filtering on the base of 'name' field (equality)"
                     }
                 ], 
                 "responses": {
@@ -1002,6 +876,18 @@
             "type": "object", 
             "description": "manages resource capacity with the resource state", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "A string. free-text description of the Resource Pool."
@@ -1023,18 +909,6 @@
                     "items": {
                         "$ref": "#/definitions/ResourceCollectionRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1042,6 +916,18 @@
             "type": "object", 
             "description": "manages resource capacity with the resource state\nSkipped properties: id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "A string. free-text description of the Resource Pool."
@@ -1055,18 +941,6 @@
                     "items": {
                         "$ref": "#/definitions/ResourceCollectionRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1074,6 +948,18 @@
             "type": "object", 
             "description": "manages resource capacity with the resource state\nSkipped properties: id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "A string. free-text description of the Resource Pool."
@@ -1087,18 +973,6 @@
                     "items": {
                         "$ref": "#/definitions/ResourceCollectionRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1106,6 +980,13 @@
             "type": "object", 
             "description": "reservation api resource", 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
                 "@type": {
                     "type": "string", 
                     "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
@@ -1148,14 +1029,6 @@
                 }, 
                 "productOfferingRef": {
                     "$ref": "#/definitions/ProductOfferingRef"
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1166,6 +1039,13 @@
                 "relatedParty"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
                 "@type": {
                     "type": "string", 
                     "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
@@ -1200,14 +1080,6 @@
                 }, 
                 "productOfferingRef": {
                     "$ref": "#/definitions/ProductOfferingRef"
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1215,6 +1087,13 @@
             "type": "object", 
             "description": "reservation api resource\nSkipped properties: id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
                 "@type": {
                     "type": "string", 
                     "description": "A string. Indicates the (class) type of reservation.\nEx. serviceItemReservation, resourceItemReservation"
@@ -1249,14 +1128,6 @@
                 }, 
                 "productOfferingRef": {
                     "$ref": "#/definitions/ProductOfferingRef"
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -1396,6 +1267,10 @@
             "type": "object", 
             "description": "an aggregate entity consisting of ResourceElement", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "A string. Indicates the type of the referred object. This attribute is to be used when the object is representing a reference to an existing object instead of the of the object itself."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "A string. Hyperlink to access the Resource collection."
@@ -1407,10 +1282,6 @@
                 "objectId": {
                     "type": "string", 
                     "description": "A list of consisted Resources."
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -1418,6 +1289,16 @@
             "type": "object", 
             "description": "An identified part of the reservation. A reservation is decomposed into one or more reservation items.", 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "quantity": {
                     "type": "integer", 
                     "description": "Represents the number of reservationItems that make up the reservation."
@@ -1431,10 +1312,6 @@
                 }, 
                 "appliedCapacityAmount": {
                     "$ref": "#/definitions/AppliedCapacityAmount"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1464,6 +1341,18 @@
             "type": "object", 
             "description": "The period of time for which user requested to use the resources.\nThe user can request on the start date without the end date.", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "daysOfWeek": {
                     "type": "string", 
                     "description": "A day or days representing when the schedule is applicable. For example 2, 3 represent Monday and Tuesday."
@@ -1480,10 +1369,6 @@
                 "validFor": {
                     "type": "string", 
                     "description": "The period of time during which the schedule is considered of interest to the business."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1491,6 +1376,10 @@
             "type": "object", 
             "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "A string. Indicates the type of the referred object. This attribute is to be used when the object is representing a reference to an existing object instead of the of the object itself."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "A string. Reference of the related party, could be a party reference or a party role reference."
@@ -1506,10 +1395,6 @@
                 "role": {
                     "type": "string", 
                     "description": "A string. Role of the related party."
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
@@ -1545,6 +1430,13 @@
             "type": "object", 
             "description": "the amount of capacity that is planned to be consumed or has been consumed.", 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
                 "@type": {
                     "type": "string", 
                     "description": "A string. Indicates the (class) type of reservation."
@@ -1568,6 +1460,18 @@
             "type": "object", 
             "description": "The amount of CapcityDemand applied to a CapacityAmount.", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "$ref": "#/definitions/int", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "appliedDemandAmount": {
                     "type": "string", 
                     "description": "An amount of demand applied to a CapacityAmount. Note that this is a composite attribute defined by CapacityAmount."
@@ -1580,10 +1484,6 @@
                     "items": {
                         "$ref": "#/definitions/ResourceRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1591,6 +1491,17 @@
             "type": "object", 
             "description": "The period of time for which Capacity or CapacityDemand applies.", 
             "properties": {
+                "@baseType": {
+                    "type": "string"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "A string. Generic attribute containing the name of the resource class type."
+                }, 
                 "dayOfWeek": {
                     "type": "string", 
                     "description": "A day or days representing when the schedule is applicable. For example 2, 3 represent Monday and Tuesday."
@@ -1607,10 +1518,6 @@
                 "validFor": {
                     "type": "string", 
                     "description": "The period of time during which the schedule is considered of interest to the business."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
@@ -1618,6 +1525,10 @@
             "type": "object", 
             "description": "Used to define a place useful for the resource\nUsed to indicate reserved resources", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "A string. Indicates the type of the referred object. This attribute is to be used when the object is representing a reference to an existing object instead of the of the object itself."
+                }, 
                 "href": {
                     "type": "string", 
                     "description": "A string. Hyperlink to access the Place."
@@ -1629,10 +1540,6 @@
                 "name": {
                     "type": "string", 
                     "description": "A string. Name of the Place."
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 

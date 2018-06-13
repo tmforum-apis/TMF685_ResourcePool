@@ -1487,6 +1487,30 @@
                 }
             }
         }, 
+        "ResourcePoolRef": {
+            "type": "object", 
+            "description": "manages resource capacity with the resource state", 
+            "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "A string. Indicates the type of the referred object. This attribute is to be used when the object is representing a reference to an existing object instead of the of the object itself."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "A string. Hyperlink to access the Resource Pool."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "A string. Identifier of an instance of the Resource Pool."
+                }, 
+                "resourceCollection": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ResourceCollectionRef"
+                    }
+                }
+            }
+        }, 
         "ApplicableTimePeriod": {
             "type": "object", 
             "description": "The period of time for which Capacity or CapacityDemand applies.", 

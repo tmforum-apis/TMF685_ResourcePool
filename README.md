@@ -1,11 +1,8 @@
-# TMF685_ResourcePool
+# TMF685 ResourcePool
 
-TM Forum Open APIs (Apache 2.0) Resource Pool Management API
+TM Forum Open API (Apache 2.0) ResourcePool API.
 
-The Resource Pool Management API offers the available capacity confirmation of
 Services / Resources and pre-reservation of them BEFORE the order.
 
-To access this API; (the Specification, Postman Collection, Swagger file, Swagger-UI,
-Reference Implementation, Conformance Profile, and CTK) go to the Open API table at:
-
-https://projects.tmforum.org/wiki/display/API/Open+API+Table
+The resources in this repository are a mirror of the official versions, published here for your convenience.
+The authoritative source of information for this API is: https://www.tmforum.org/oda/open-apis/directory/
